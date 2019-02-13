@@ -17,7 +17,7 @@ data = requests.get(theblacklistsite).content
 
 print("running scrape")
 data = re.search(r'\<\!\-\-\ \_\_BEGIN\_TOR\_NODE\_LIST\_\_ \/\/\-\-\>(.*)\<\!\-\- \_\_',data, flags=re.DOTALL)
-data = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\|(\w+)', data.group(1))
+data = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\|(\w+)', data.group(1))
 
 for item in data:
     if(re.match(r'E|X',item[1])):
